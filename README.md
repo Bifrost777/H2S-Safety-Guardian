@@ -4,6 +4,18 @@ A comprehensive industrial safety monitoring and visual colorimetric analysis pl
 
 ---
 
+## 📸 Prototype Preview
+
+> [!NOTE]
+> **Prototype Demonstration:** The interfaces shown below represent an early-stage working prototype demonstrating the user experience, real-time safety telemetry, and computer-vision colorimetric test strip analysis. This is **not the final production release**; field-sensor hardware integration and production calibration curves are actively under iterative development.
+
+| Web Dashboard (Safety Control Room) | Mobile Field App (Colorimetric Strip Analysis) |
+| :---: | :---: |
+| <img src="docs/screenshots/web-prototype-dashboard.png" alt="H2S Guardian Web Dashboard Prototype" width="560" /> | <img src="docs/screenshots/mobile-prototype-strip-analysis.png" alt="H2S Guardian Mobile Strip Analysis Prototype" width="280" /> |
+| *Facility-wide live telemetry, multi-zone PPM tracking & 24-hr exposure signals* | *Field chemical indicator strip reader with ROI selection & tone matching* |
+
+---
+
 ## 🌟 Key Features
 
 ### 1. 📱 Field Mobile Application (`artifacts/h2s-guardian-mobile`)
@@ -40,6 +52,8 @@ H2S-Safety-Guardian/
 │   ├── h2s-guardian-mobile/    # Expo / React Native mobile application
 │   ├── h2s-guardian-web/       # React + Vite industrial web dashboard
 │   └── mockup-sandbox/         # Prototyping sandbox
+├── docs/
+│   └── screenshots/            # Prototype screenshots for documentation
 ├── lib/
 │   ├── api-client-react/       # Generated React Query API client
 │   ├── api-spec/               # OpenAPI contract definitions
@@ -64,22 +78,22 @@ pnpm install
 ```
 *(Dependencies and build artifacts like `node_modules` and `dist` are excluded from version control).*
 
-### 2. Run the Web Dashboard
+### 2. Development Commands
+You can run services individually or via root workspace commands:
+
 ```bash
-pnpm --filter @workspace/h2s-guardian-web run dev
+# Run Web Dashboard (Vite on port 5173 / configured host)
+pnpm run dev:web
+# (or simply: pnpm run dev)
+
+# Run Mobile App (Expo)
+pnpm run dev:mobile
+
+# Run API Server (Express on port 5000)
+pnpm run dev:server
 ```
 
-### 3. Run the Mobile App (Expo)
-```bash
-pnpm --filter @workspace/h2s-guardian-mobile run dev
-```
-
-### 4. Run the API Server
-```bash
-pnpm --filter @workspace/api-server run dev
-```
-
-### 5. Typecheck & Build
+### 3. Typecheck & Build
 ```bash
 # Typecheck across all workspace packages
 pnpm run typecheck
