@@ -20,10 +20,18 @@
     "web": {
       "favicon": "./assets/images/icon.png"
     },
-    "plugins": ["expo-router"],
+    "plugins": [
+      "expo-router"
+    ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ec08b7ec-b31f-4c86-8b03-5a8846711d92"
+      }
+    },
+    "owner": "bifrost_king"
   }
 }
