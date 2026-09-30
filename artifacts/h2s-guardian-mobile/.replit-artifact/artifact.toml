@@ -1,0 +1,24 @@
+kind = "mobile"
+previewPath = "/h2s-guardian-mobile/"
+title = "H2S Guardian Mobile"
+description = "A native Android industrial-safety demo for SIH 2026 with local simulated H2S readings, a demo warning trigger, exposure history, shift records, and passive color-strip analysis."
+version = "1.0.0"
+id = "artifacts/h2s-guardian-mobile"
+router = "expo-domain"
+
+[[services]]
+name = "expo"
+ensurePreviewReachable = "/status"
+paths = [ "/h2s-guardian-mobile/" ]
+localPort = 23445
+
+[services.development]
+run = "pnpm --filter @workspace/h2s-guardian-mobile run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/h2s-guardian-mobile", "run", "build" ]
+run = [ "pnpm", "--filter", "@workspace/h2s-guardian-mobile", "run", "serve" ]
+
+[services.env]
+PORT = "23445"
+BASE_PATH = "/h2s-guardian-mobile/"

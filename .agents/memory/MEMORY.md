@@ -1,0 +1,1 @@
+- [Android APK delivery](android-apk-delivery.md) — Replit can preview Expo Android apps but cannot directly export a standalone APK; keep an external build step in mind.

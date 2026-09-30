@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "H2S Guardian Web Preview"
+description = "A browser companion for the H2S Guardian industrial-safety demo, with simulated hydrogen sulfide readings, warning controls, exposure history, shift records, and passive color-strip analysis using local demo data."
+version = "1.0.0"
+id = "artifacts/h2s-guardian-web"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24948
+
+[services.development]
+run = "pnpm --filter @workspace/h2s-guardian-web run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/h2s-guardian-web", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/h2s-guardian-web/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24948"
+BASE_PATH = "/"
