@@ -49,3 +49,11 @@ Thumbs.db
 .local/
 .config/
 attached_assets/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
